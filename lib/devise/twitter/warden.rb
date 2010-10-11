@@ -37,6 +37,7 @@ Warden::OAuth.access_token_user_finder(:twitter) do |access_token|
       user.twitter_oauth_secret = access_token.secret
       user.before_twitter_auto_create(already_existing_user, twitter_handle)
       user.save
+      user.after_twitter_auto_create
     end
 
     return user
